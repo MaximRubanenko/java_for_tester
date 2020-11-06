@@ -34,14 +34,6 @@ public class GroupCreationTests {
     initGroupCreation("new");
     fillGroupForm(new GroupDate("Home2", "Home and Private contacts", "My houme contacts"));
     submitGroup("submit");
-
-    gotoGroupPage();
-    initGroupCreation("new");
-    fillGroupForm(new GroupDate("Work2", "Work  contacts", "My work contacts"));
-    submitGroup("submit");
-
-    showNewGroup("groups");
-    logout("Logout");
   }
 
   private void logout(String logout) {

@@ -65,6 +65,7 @@ public class ContactCreationTest {
     wd.findElement(By.name(pass)).sendKeys(secret);
     wd.findElement(xpath).click();
 
+
   }
 
   @AfterMethod(alwaysRun = true)

@@ -16,17 +16,22 @@ public class GroupDeletionTest {
   public void setUp(){
     wd = new FirefoxDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    wd.get("http://localhost/addressbook/group.php");
+    login("admin", "secret");
+  }
+
+  private void login(String username, String password) {
+    wd.findElement(By.name("user")).click();
+    wd.findElement(By.name("user")).clear();
+    wd.findElement(By.name("user")).sendKeys(username);
+    wd.findElement(By.name("pass")).clear();
+    wd.findElement(By.name("pass")).sendKeys(password);
+    wd.findElement(By.id("LoginForm")).submit();
   }
 
   @Test
   public void testGroupDeletion()  {
-    wd.get("http://localhost/addressbook/group.php");
-    wd.findElement(By.name("user")).click();
-    wd.findElement(By.name("user")).clear();
-    wd.findElement(By.name("user")).sendKeys("admin");
-    wd.findElement(By.name("pass")).clear();
-    wd.findElement(By.name("pass")).sendKeys("secret");
-    wd.findElement(By.id("LoginForm")).submit();
+
     wd.findElement(By.xpath("(//input[@name='selected[]'])[6]")).click();
     wd.findElement(By.xpath("(//input[@name='delete'])[2]")).click();
     wd.findElement(By.linkText("group page")).click();

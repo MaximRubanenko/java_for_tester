@@ -26,13 +26,12 @@ public class ApplicationManager {
   }
 
 
-
   public void stop() {
     wd.quit();
   }
 
   public void returnToHomePage() {
-    wd.findElement(By.linkText("home page")).click();
+    contactHelper.click(By.linkText("home page"));
   }
 
   public GroupHelper getGroupHelper() {

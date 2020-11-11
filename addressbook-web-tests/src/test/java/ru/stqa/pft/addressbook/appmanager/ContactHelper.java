@@ -6,9 +6,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 // Пока не работает
 public class ContactHelper extends HelperBase {
-  private FirefoxDriver wd;
 
   public ContactHelper(FirefoxDriver wd) {
+
     super(wd);
   }
 
@@ -27,7 +27,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click(By.id("9"));
+    click(By.id("10"));
   }
 
   public void deleteContact() {
@@ -36,12 +36,10 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModifyContact() {
-    click(By.xpath("(img[@alt='Edit'])[2]"));
-    //     click(By.xpath("(//input[@name='edit'])[1]"));
-//    xpath=(//img[@alt='Edit'])[2]
+    click(By.xpath("//a[contains(@href,'edit.php?id=10')]"));
   }
 
   public void submitContactUpdate() {
-    click(By.xpath("input[@name='update']"));
+    click(By.xpath("//input[22]"));
   }
 }

@@ -21,6 +21,10 @@ public class HelperBase {
     wd.findElement(By.name(locator)).clear();
     wd.findElement(By.name(locator)).sendKeys(text);
   }
+
+  public int count(String elementName) {
+    return wd.findElements(By.name(elementName)).size();
+  }
   public boolean isAlertPresent(){
     try{
       wd.switchTo().alert();

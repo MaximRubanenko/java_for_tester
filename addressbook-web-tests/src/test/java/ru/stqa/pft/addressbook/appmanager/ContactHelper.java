@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-// Пока не работает
+
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(FirefoxDriver wd) {
@@ -13,7 +13,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public void sumbitContactCreation() {
-    click(By.xpath("(//input[@name='submit'])[2]"));
+//    click(By.xpath("(//input[@name='submit'])[2]"));
+    click(By.xpath("(//input[@name='submit'])"));
   }
 
   public void fillContactForm(ContactData contactData) {
@@ -27,7 +28,10 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact() {
-    click(By.id("10"));
+  if   (count("selected[]") > 0) {
+      click(By.name("selected[]"));
+    }
+
   }
 
   public void deleteContact() {
@@ -36,10 +40,10 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModifyContact() {
-    click(By.xpath("//a[contains(@href,'edit.php?id=10')]"));
+    click(By.cssSelector("img[alt='Edit']"));
   }
 
   public void submitContactUpdate() {
-    click(By.xpath("//input[22]"));
+    click(By.name("update"));
   }
 }

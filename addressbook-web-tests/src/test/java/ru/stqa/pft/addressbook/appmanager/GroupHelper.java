@@ -30,18 +30,18 @@ public class GroupHelper extends HelperBase {
   }
 
   public void deleteSelectedGroup() {
-    click(By.xpath("(//input[@name='delete'])[1]"));
+    click(By.xpath("(//input[@name='delete'])"));
   }
 
   public void selectGroup() {
-    click(By.xpath("(//input[@name='selected[]'])[6]"));
+    click(By.xpath("(//input[@name='selected[]'])"));
   }
 
   public void initGroupModification() {
-    click(By.xpath("(//input[@name='edit'])[1]"));
+    click(By.xpath("(//input[@name='edit'])"));
   }
 
   public void submitGroupModification() {
-    click(By.xpath("(//input[@name='update'])[1]"));
+    click(By.xpath("(//input[@name='update'])"));
   }
 }

@@ -9,12 +9,8 @@ public class ContactDeletionTest extends TestBase{
 
   @Test
   public void testContactDeletion(){
-    app.getNavigationHelper().gotoHomePage();
-    if (app.getContactHelper().count("selected[]") > 0) {
+      app.getNavigationHelper().gotoHomePage();
       app.getContactHelper().selectContact();
       app.getContactHelper().deleteContact();
-    } else {
-      Assert.fail("There are no contacts to delete");
-    }
   }
 }

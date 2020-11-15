@@ -39,6 +39,7 @@ public class ApplicationManager {
     sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
     sessionHelper.login("admin", "secret");
+    // Ветка к заданию 8
   }
 
 

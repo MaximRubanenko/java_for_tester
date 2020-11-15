@@ -2,6 +2,7 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -21,9 +22,13 @@ public class HelperBase {
     wd.findElement(By.name(locator)).clear();
     wd.findElement(By.name(locator)).sendKeys(text);
   }
-
-  public int count(String elementName) {
-    return wd.findElements(By.name(elementName)).size();
+  public boolean isElementPresent(By locator){
+    try{
+      wd.findElement(locator);
+      return true;
+    } catch(NoSuchElementException ex) {
+      return false;
+    }
   }
 
   public boolean isAlertPresent(){

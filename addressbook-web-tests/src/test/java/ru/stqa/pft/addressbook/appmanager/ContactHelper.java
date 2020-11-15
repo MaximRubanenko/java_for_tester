@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 
 public class ContactHelper extends HelperBase {
@@ -14,7 +15,6 @@ public class ContactHelper extends HelperBase {
   }
 
   public void sumbitContactCreation() {
-//    click(By.xpath("(//input[@name='submit'])[2]"));
     click(By.xpath("(//input[@name='submit'])"));
   }
 
@@ -44,4 +44,6 @@ public class ContactHelper extends HelperBase {
   public void submitContactUpdate() {
     click(By.name("update"));
   }
+
+
 }

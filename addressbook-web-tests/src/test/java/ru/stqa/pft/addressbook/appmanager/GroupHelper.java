@@ -36,10 +36,6 @@ public class GroupHelper extends HelperBase {
   }
 
   public void selectGroup() {
-    if (! isElementPresent(By.name("selected[]"))) {
-      System.out.println("Element does not present ****************************");
-      CreateGroup();
-    }
     click(By.xpath("(//input[@name='selected[]'])"));
   }
 
@@ -51,10 +47,14 @@ public class GroupHelper extends HelperBase {
     click(By.xpath("(//input[@name='update'])"));
   }
 
-  public void CreateGroup() {
+  public void createGroup(GroupData group) {
     initialGroupCreation();
-    fillGroupForm(new GroupData("StartGroup1", "textHeader", "textFooter"));
+    fillGroupForm(group);
     submitGroupForm();
     returnToGroupPage();
+  }
+
+  public boolean isThereAGroup() {
+    return isElementPresent(By.name("selected[]"));
   }
 }

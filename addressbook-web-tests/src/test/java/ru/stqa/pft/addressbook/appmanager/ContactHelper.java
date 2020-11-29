@@ -30,8 +30,10 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void selectContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    //click(By.name("selected[]"));
+    wd.findElements(By.name("selected[]")).get(index).click();
+    //  wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void deleteContact() {
@@ -70,11 +72,19 @@ public class ContactHelper extends HelperBase {
 
     for (WebElement element : elements){
       List<WebElement> cells = element.findElements(By.tagName("td"));
-      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      //int id = Integer.parseInt(element.findElement(By.tagName("td")).getAttribute("id"));
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
       String lastname = cells.get(1).getText();
       String name = cells.get(2).getText();
-      contacts.add(new ContactData(name,null, lastname,null));
+      contacts.add(new ContactData(id, name,null, lastname,null));
     }
     return contacts;
+  }
+
+  public void showContacts(List<ContactData> l) {
+      for(ContactData c: l){
+      System.out.println("id: "+ c.getId() + "Name: "+c.getFirstname()+ " Lastname: "+ c.getLastname());
+
+    }
   }
 }

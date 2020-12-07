@@ -8,16 +8,18 @@ import java.util.List;
 
 public class ContactModificationTest extends TestBase {
 
-  @Test (enabled = false)
+  @Test
   public void testContactModification() {
     app.goTo().gotoHomePage();
-    if (! app.getContactHelper().isThereAContact()){
-      app.getContactHelper().createContact(new ContactData("Nicke", "B", "Marley", "tst@test.ru"));
+    if (app.getContactHelper().isThereAContact()){
+      //app.getContactHelper().createContact(new ContactData("Nicke", "B", "Marley", "tst@test.ru"));
+      app.getContactHelper().createContact(new ContactData().withFirstname("Bob").withLastname("Stewenson"));
     }
     List<ContactData> before = app.getContactHelper().getContactList();
 
     app.getContactHelper().initModifyContact(before.size());
-    ContactData contact = new ContactData(before.get(before.size()-1).getId(),"Petr", "B", "Petrov", "tst@test.ru");
+//    ContactData contact = new ContactData(before.get(before.size()-1).getId(),"Petr", "B", "Petrov", "tst@test.ru");
+    ContactData contact = new ContactData().withId(before.get(before.size()-1).getId()).withFirstname("Petr").withLastname("Petrov");
     app.getContactHelper().fillContactForm(contact);
     app.getContactHelper().submitContactUpdate();
     app.goTo().gotoHomePage();

@@ -11,10 +11,7 @@ import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
-  public ContactHelper(WebDriver wd) {
-
-    super(wd);
-  }
+  public ContactHelper(WebDriver wd) {    super(wd);  }
 
   public void sumbitContactCreation() {
     click(By.xpath("(//input[@name='submit'])"));
@@ -31,9 +28,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact(int index) {
-    //click(By.name("selected[]"));
     wd.findElements(By.name("selected[]")).get(index).click();
-    //  wd.findElements(By.name("selected[]")).get(index).click();
   }
 
   public void deleteContact() {
@@ -42,10 +37,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModifyContact(int index) {
-    //click(By.cssSelector("img[alt='Edit']"));
-    click(By.xpath("(//img[@alt='Edit'])["+index+"]"));
-//    System.out.println("Index: "+index);
-//    click(By.xpath("(//img[@alt='Edit'])[1]"));
+    click(By.xpath("(//img[@alt='Edit'])[" + index + "]"));
   }
 
   public void submitContactUpdate() {
@@ -53,8 +45,12 @@ public class ContactHelper extends HelperBase {
   }
 
 
+//  public boolean isThereAContact() {
+//    return isElementPresent(By.name("selected[]"));
+//  }
+
   public boolean isThereAContact() {
-    return isElementPresent(By.name("selected[]"));
+    return !isElementPresent(By.name("selected[]"));
   }
 
   public void createContact(ContactData contact) {
@@ -73,21 +69,14 @@ public class ContactHelper extends HelperBase {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));
 
-    for (WebElement element : elements){
+    for (WebElement element : elements) {
       List<WebElement> cells = element.findElements(By.tagName("td"));
-      //int id = Integer.parseInt(element.findElement(By.tagName("td")).getAttribute("id"));
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
       String lastname = cells.get(1).getText();
       String name = cells.get(2).getText();
-      contacts.add(new ContactData(id, name,null, lastname,null));
+      contacts.add(new ContactData().withId(id).withFirstname(name).withLastname(lastname));
     }
     return contacts;
   }
 
-  public void showContacts(List<ContactData> l) {
-      for(ContactData c: l){
-      System.out.println("id: "+ c.getId() + "Name: "+c.getFirstname()+ " Lastname: "+ c.getLastname());
-
-    }
-  }
 }

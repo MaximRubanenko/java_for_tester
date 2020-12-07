@@ -10,11 +10,12 @@ import java.util.List;
 
 public class ContactDeletionTest extends TestBase {
 
-  @Test (enabled = false)
+  @Test
   public void testContactDeletion() {
     app.goTo().gotoHomePage();
-    if (!app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData("Nicke", "B", "Marley", "tst@test.ru"));
+    if (app.getContactHelper().isThereAContact()) {
+      //app.getContactHelper().createContact(new ContactData("Nicke", "B", "Marley", "tst@test.ru"));
+      app.getContactHelper().createContact(new ContactData().withFirstname("Nicke").withLastname("Marley"));
     }
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().selectContact(before.size() - 1);

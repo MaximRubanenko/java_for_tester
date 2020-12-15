@@ -7,23 +7,22 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class ContactHelper extends HelperBase {
 
-  public ContactHelper(WebDriver wd) {    super(wd);  }
+  public ContactHelper(WebDriver wd) {
+    super(wd);
+  }
 
   public void sumbitContactCreation() {
     click(By.xpath("(//input[@name='submit'])"));
   }
 
   public void fillContactForm(ContactData contactData) {
-    type("firstname", contactData.getFirstname());
-    type("lastname", contactData.getLastname());
-    type("email", contactData.getEmail());
+    type(By.name("firstname"), contactData.getFirstname());
+    type(By.name("lastname"), contactData.getLastname());
   }
 
   public void initContactCreation() {
@@ -34,23 +33,21 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-  private Contacts contactCash = null;
 
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));
     wd.switchTo().alert().accept();
   }
 
-  public void delete(ContactData c) { ////////////////////////
+  public void delete(ContactData c) {
     selectContactById(c.getId());
     deleteContact();
-    confirmDelete();
-     contactCash = null;
   }
 
-  public void confirmPopUp(){
+  public void confirmPopUp() {
     wd.switchTo().alert().accept();
   }
+
   public void confirmDelete() {
     confirmPopUp();
   }
@@ -60,17 +57,12 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initModifyContact(int index) {
-    click(By.xpath("(//img[@alt='Edit'])[" + index + "]"));
+    click(By.xpath("//input[@id=" + index + "]/../../td[8]/a"));
   }
 
   public void submitContactUpdate() {
     click(By.name("update"));
   }
-
-
-//  public boolean isThereAContact() {
-//    return isElementPresent(By.name("selected[]"));
-//  }
 
   public boolean isThereAContact() {
     return !isElementPresent(By.name("selected[]"));
@@ -101,6 +93,7 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
   public Contacts allContact() {
     Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));

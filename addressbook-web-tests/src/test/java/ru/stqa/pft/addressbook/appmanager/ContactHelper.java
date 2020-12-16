@@ -35,7 +35,7 @@ public class ContactHelper extends HelperBase {
   public void delete(ContactData c) {
     selectContactById(c.getId());
     deleteContact();
-    //Contacts contactCache = null;
+    contactCache = null;
   }
 
   private void selectContactById(int id) {
@@ -48,6 +48,7 @@ public class ContactHelper extends HelperBase {
 
   public void submitContactUpdate() {
     click(By.name("update"));
+    contactCache = null;
   }
 
   public boolean isThereAContact() {
@@ -58,7 +59,7 @@ public class ContactHelper extends HelperBase {
     initContactCreation();
     fillContactForm(contact);
     sumbitContactCreation();
-    //Contacts contactCache = null;
+    contactCache = null;
     returnToHomePage();
   }
 
@@ -68,9 +69,9 @@ public class ContactHelper extends HelperBase {
   private Contacts contactCache = null;
 
   public Contacts allContact() {
-//    if (contactCache != null) {
-//      return new Contacts(contactCache);
-//    }
+    if (contactCache != null) {
+      return new Contacts(contactCache);
+    }
 
     contactCache = new Contacts();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));

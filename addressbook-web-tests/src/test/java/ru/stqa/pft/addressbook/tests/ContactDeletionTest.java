@@ -20,7 +20,10 @@ public class ContactDeletionTest extends TestBase {
   public void testContactDeletion() {
     app.goTo().gotoHomePage();
     if (app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().createContact(new ContactData().withFirstname("Nicke").withLastname("Marley"));
+      app.getContactHelper().
+              createContact(new ContactData()
+                      .withFirstname("Nicke")
+                      .withLastname("Marley"));
     }
     Contacts before = app.getContactHelper().allContact();
     ContactData deletedContact = before.iterator().next();

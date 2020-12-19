@@ -7,6 +7,12 @@ public class ContactData {
   private String firstname;
   private String middlename;
   private String lastname;
+  private String home;
+
+
+
+  private String mobile;
+  private String work;
   private String email;
 
   @Override
@@ -55,6 +61,20 @@ public class ContactData {
 
   public ContactData withId(int id) {
     this.id = id;
+    return this;
+  }
+  public ContactData withHomePhone(String home) {
+    this.home = home;
+    return this;
+  }
+
+  public ContactData withMobilePhone(String mobile) {
+    this.mobile = mobile;
+    return this;
+  }
+
+  public ContactData withWorkPhone(String work) {
+    this.work = work;
     return this;
   }
 

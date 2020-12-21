@@ -11,7 +11,17 @@ import static org.testng.Assert.assertEquals;
 public class ContactPhoneTests extends TestBase {
   @Test
   public void TestContactPhones() {
-    // Выполнить предуслови. Создать нужный контакт, если он несуществует.
+    // Выполнить предусловия. Создать нужный контакт, если он несуществует.
+    app.goTo().gotoHomePage();
+    if (app.getContactHelper().isThereAContact()) {
+      app.getContactHelper().createContact(new ContactData()
+              .withFirstname("Bob")
+              .withLastname("Stewenson")
+              .withHomePhone("111")
+              .withMobilePhone("222")
+              .withWorkPhone("333")
+      );
+    }
     app.goTo().gotoHomePage();
     ContactData contact = app.getContactHelper().allContact().iterator().next();
     ContactData contactInfoFromEditForm = app.getContactHelper().infoFromEditForm(contact);

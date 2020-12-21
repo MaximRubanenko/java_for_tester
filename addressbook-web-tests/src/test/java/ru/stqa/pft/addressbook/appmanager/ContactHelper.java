@@ -20,6 +20,9 @@ public class ContactHelper extends HelperBase {
   public void fillContactForm(ContactData contactData) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("lastname"), contactData.getLastname());
+    type(By.name("home"),contactData.getHome());
+    type(By.name("mobile"),contactData.getMobile());
+    type(By.name("work"),contactData.getWork());
   }
 
   public void initContactCreation() {

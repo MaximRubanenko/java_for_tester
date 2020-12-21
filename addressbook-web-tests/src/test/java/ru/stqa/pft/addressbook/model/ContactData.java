@@ -3,6 +3,8 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
+
+
   private int id = Integer.MAX_VALUE;
   private String firstname;
   private String middlename;
@@ -44,6 +46,17 @@ public class ContactData {
 
   public int getId() {
     return id;
+  }
+  public String getHome() {
+    return home;
+  }
+
+  public String getMobile() {
+    return mobile;
+  }
+
+  public String getWork() {
+    return work;
   }
 
   public ContactData withFirstname(String firstname) {

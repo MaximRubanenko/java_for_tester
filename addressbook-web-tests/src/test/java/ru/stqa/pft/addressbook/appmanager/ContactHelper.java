@@ -44,6 +44,7 @@ public class ContactHelper extends HelperBase {
 
   public void initModifyContact(int index) {
     click(By.xpath("//input[@id=" + index + "]/../../td[8]/a"));
+    //click(By.xpath("//input[@id='%s' + index + '']/../../td[8]/a"));
   }
 
   public void submitContactUpdate() {
@@ -81,7 +82,11 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
       String lastname = cells.get(1).getText();
       String name = cells.get(2).getText();
-      contactCache.add(new ContactData().withId(id).withFirstname(name).withLastname(lastname));
+      String[] phones = cells.get(5).getText().split("\n");
+      contactCache.add(new ContactData().withId(id).withFirstname(name).withLastname(lastname)
+              .withHomePhone(phones[0])
+              .withMobilePhone(phones[1])
+              .withWorkPhone(phones[2]));
     }
     return new Contacts(contactCache);
   }
@@ -91,7 +96,7 @@ public class ContactHelper extends HelperBase {
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
     String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
     String home = wd.findElement(By.name("home")).getAttribute("value");
-    String mobile = wd.findElement(By.name("mobile  ")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)

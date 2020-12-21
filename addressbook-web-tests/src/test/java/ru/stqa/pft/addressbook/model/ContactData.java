@@ -8,9 +8,6 @@ public class ContactData {
   private String middlename;
   private String lastname;
   private String home;
-
-
-
   private String mobile;
   private String work;
   private String email;

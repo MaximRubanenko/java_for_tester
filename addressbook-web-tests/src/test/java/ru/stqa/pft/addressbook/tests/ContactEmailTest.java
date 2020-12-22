@@ -6,10 +6,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactPhoneTests extends TestBase {
+public class ContactEmailTest extends TestBase {
   @Test
-  public void TestContactPhones() {
-    // Выполнить предусловия. Создать нужный контакт, если он несуществует.
+  public void TestContactEmail() {
     app.goTo().gotoHomePage();
     if (app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(new ContactData()
@@ -18,19 +17,19 @@ public class ContactPhoneTests extends TestBase {
               .withHomePhone("111-222")
               .withMobilePhone("+7(222)")
               .withWorkPhone("333 999 222")
+              .withEmail("start@stop.ru")
+              .withEmail2("bravo@next.com")
+              .withEmail3("nike@prado.fi")
       );
     }
+
     app.goTo().gotoHomePage();
     ContactData contact = app.getContactHelper().allContact().iterator().next();
     ContactData contactInfoFromEditForm = app.getContactHelper().infoFromEditForm(contact);
-    assertThat(contact.getHome(),equalTo(cleaned(contactInfoFromEditForm.getHome())));
-    assertThat(contact.getMobile(),equalTo(cleaned(contactInfoFromEditForm.getMobile())));
-    assertThat(contact.getWork(),equalTo(cleaned(contactInfoFromEditForm.getWork())));
-    assertThat(contact,equalTo(contactInfoFromEditForm));
-  }
 
-  public String cleaned(String phone){
-    return phone.replaceAll("\\s","").replaceAll("[-()]","");
+    assertThat(contact.getEmail(), equalTo(contactInfoFromEditForm.getEmail()));
+    assertThat(contact.getEmail2(), equalTo(contactInfoFromEditForm.getEmail2()));
+    assertThat(contact.getEmail3(), equalTo(contactInfoFromEditForm.getEmail3()));
   }
-
 }
+

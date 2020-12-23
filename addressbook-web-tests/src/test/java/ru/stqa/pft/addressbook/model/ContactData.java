@@ -15,6 +15,11 @@ public class ContactData {
   private String email;
   private String email2;
   private String email3;
+  private String address;
+
+
+
+  private String address2;
 
   @Override
   public boolean equals(Object o) {
@@ -113,5 +118,21 @@ public class ContactData {
     this.email3 = email3;
     return this;
   }
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
 
+  public ContactData withAddress2(String address2) {
+    this.address2 = address2;
+    return this;
+  }
+
+  public String getAddress() {
+    return address;
+  }
+
+  public String getAddress2() {
+    return address2;
+  }
 }

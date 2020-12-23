@@ -26,6 +26,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"),contactData.getEmail());
     type(By.name("email2"),contactData.getEmail2());
     type(By.name("email3"),contactData.getEmail3());
+    type(By.name("address"),contactData.getAddress());
+    type(By.name("address2"),contactData.getAddress2());
   }
 
   public void initContactCreation() {
@@ -89,7 +91,9 @@ public class ContactHelper extends HelperBase {
       String lastname = cells.get(1).getText();
       String name = cells.get(2).getText();
       String[] emails = cells.get(4).getText().split("\n");
+      String[] address = cells.get(3).getText().split("\n");
       String[] phones = cells.get(5).getText().split("\n");
+
 
       contactCache.add(new ContactData().withId(id).withFirstname(name).withLastname(lastname)
               .withHomePhone(phones[0])
@@ -98,6 +102,8 @@ public class ContactHelper extends HelperBase {
               .withEmail(emails[0])
               .withEmail2(emails[1])
               .withEmail3(emails[2])
+              .withAddress(address[0])
+          //    .withAddress2(address[1])
       );
     }
     return new Contacts(contactCache);
@@ -113,8 +119,12 @@ public class ContactHelper extends HelperBase {
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
+    //String address2 = wd.findElement(By.name("address2")).getAttribute("value");
     wd.navigate().back();
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
-            .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withEmail(email).withEmail2(email2).withEmail3(email3);
+            .withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work).withEmail(email).withEmail2(email2)
+            .withEmail3(email3).withAddress(address);
+    //.withAddress2(address2);
   }
 }

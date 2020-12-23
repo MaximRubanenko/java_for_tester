@@ -6,9 +6,9 @@ import ru.stqa.pft.addressbook.model.ContactData;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class ContactPhoneTests extends TestBase {
+public class ContactAddressTests extends TestBase {
   @Test
-  public void TestContactPhones() {
+  public void TestContactAddress() {
     // Выполнить предусловия. Создать нужный контакт, если он несуществует.
     app.goTo().gotoHomePage();
     if (app.getContactHelper().isThereAContact()) {
@@ -21,19 +21,20 @@ public class ContactPhoneTests extends TestBase {
               .withEmail("start@stop.ru")
               .withEmail2("bravo@next.com")
               .withEmail3("nike@prado.fi")
+              .withAddress("Moscow, Stornaya    9")
+              //.withAddress2("Tula, Pavlova 6 /2")
       );
     }
     app.goTo().gotoHomePage();
     ContactData contact = app.getContactHelper().allContact().iterator().next();
     ContactData contactInfoFromEditForm = app.getContactHelper().infoFromEditForm(contact);
-    assertThat(contact.getHome(),equalTo(cleaned(contactInfoFromEditForm.getHome())));
-    assertThat(contact.getMobile(),equalTo(cleaned(contactInfoFromEditForm.getMobile())));
-    assertThat(contact.getWork(),equalTo(cleaned(contactInfoFromEditForm.getWork())));
-    assertThat(contact,equalTo(contactInfoFromEditForm));
+    assertThat(contact.getAddress(),equalTo(cleaned(contactInfoFromEditForm.getAddress())));
+    //assertThat(contact.getAddress2(),equalTo(contactInfoFromEditForm.getAddress2()));
+
   }
 
-  public String cleaned(String phone){
-    return phone.replaceAll("\\s","").replaceAll("[-()]","");
+  public String cleaned(String address){
+    return address.replaceAll("\\s","&").replaceAll("&"," ");
   }
 
 }

@@ -16,7 +16,18 @@ public class ContactCreationTest extends TestBase {
   public void testCreationContact() {
     app.goTo().gotoHomePage();
     Contacts before = app.getContactHelper().allContact();
-    ContactData contact = new ContactData().withFirstname("Nicke").withLastname("Marley");
+    ContactData contact = //new ContactData().withFirstname("Nicke").withLastname("Marley");
+            new ContactData()
+                    .withFirstname("Bob")
+                    .withLastname("Stewenson")
+                    .withHomePhone("111-222")
+                    .withMobilePhone("+7(222)")
+                    .withWorkPhone("333 999 222")
+                    .withEmail("start@stop.ru")
+                    .withEmail2("bravo@next.com")
+                    .withEmail3("nike@prado.fi")
+                    .withAddress("Moscow, Stornaya  bld 4/52 fl.   9");
+
     app.getContactHelper().createContact(contact);
     Contacts after = app.getContactHelper().allContact();
     assertThat(after, equalTo(before.withAdded(contact)));

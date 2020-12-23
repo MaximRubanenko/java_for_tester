@@ -21,7 +21,7 @@ public class ContactAddressTests extends TestBase {
               .withEmail("start@stop.ru")
               .withEmail2("bravo@next.com")
               .withEmail3("nike@prado.fi")
-              .withAddress("Moscow, Stornaya    9")
+              .withAddress("Moscow, Stornaya  bld 4/52 fl.   9")
               //.withAddress2("Tula, Pavlova 6 /2")
       );
     }
@@ -34,7 +34,7 @@ public class ContactAddressTests extends TestBase {
   }
 
   public String cleaned(String address){
-    return address.replaceAll("\\s","&").replaceAll("&"," ");
+    return address.replaceAll("\\s+"," ");
   }
 
 }

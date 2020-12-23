@@ -20,10 +20,17 @@ public class ContactDeletionTest extends TestBase {
   public void testContactDeletion() {
     app.goTo().gotoHomePage();
     if (app.getContactHelper().isThereAContact()) {
-      app.getContactHelper().
-              createContact(new ContactData()
-                      .withFirstname("Nicke")
-                      .withLastname("Marley"));
+      app.getContactHelper().createContact(
+                      new ContactData()
+                              .withFirstname("Bob")
+                              .withLastname("Stewenson")
+                              .withHomePhone("111-222")
+                              .withMobilePhone("+7(222)")
+                              .withWorkPhone("333 999 222")
+                              .withEmail("start@stop.ru")
+                              .withEmail2("bravo@next.com")
+                              .withEmail3("nike@prado.fi")
+                              .withAddress("Moscow, Stornaya  bld 4/52 fl.   9"));
     }
     Contacts before = app.getContactHelper().allContact();
     ContactData deletedContact = before.iterator().next();

@@ -94,7 +94,7 @@ public class ContactHelper extends HelperBase {
       String[] address = cells.get(3).getText().split("\n");
       String[] phones = cells.get(5).getText().split("\n");
 
-
+//В кэш записывать значения не разбивая по полям
       contactCache.add(new ContactData().withId(id).withFirstname(name).withLastname(lastname)
               .withHomePhone(phones[0])
               .withMobilePhone(phones[1])

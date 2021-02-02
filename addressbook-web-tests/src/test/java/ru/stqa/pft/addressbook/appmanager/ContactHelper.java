@@ -108,7 +108,7 @@ public class ContactHelper extends HelperBase {
     }
     return new Contacts(contactCache);
   }
-
+// Нужно здесь склеить значения телефонов, email и адресов. Чтобы создавался такойже оъект ContactData как и при чтении на главнй странице
   public ContactData infoFromEditForm(ContactData contact) {
     initModifyContact(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");

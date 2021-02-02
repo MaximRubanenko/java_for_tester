@@ -13,12 +13,41 @@ public class ContactData {
   private String mobile;
   private String work;
   private String email;
+
+  public String getAllAdress() {
+    return allAdress;
+  }
+
+  public ContactData withAllAdress(String allAdress) {
+    this.allAdress = allAdress;
+    return this;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+
+  }
+
   private String email2;
   private String email3;
   private String address;
-
-
-
+  private String allAdress;
+  private String allEmails;
+  private String allPhones;
   private String address2;
 
   @Override

@@ -7,9 +7,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import ru.stqa.pft.addressbook.appmanager.ApplicationManager;
 
+
 public class TestBase {
 
-  protected static final ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
+  protected static final ApplicationManager app = new ApplicationManager(BrowserType.FIREFOX);
 
   @BeforeSuite(alwaysRun = true)
   public void setUp() {

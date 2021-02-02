@@ -90,20 +90,20 @@ public class ContactHelper extends HelperBase {
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("id"));
       String lastname = cells.get(1).getText();
       String name = cells.get(2).getText();
-      String[] emails = cells.get(4).getText().split("\n");
-      String[] address = cells.get(3).getText().split("\n");
-      String[] phones = cells.get(5).getText().split("\n");
+
+      String allAdress = cells.get(3).getText();
+      String allEmails = cells.get(4).getText();
+      String allPhones = cells.get(5).getText();
+
+//      String[] emails = cells.get(4).getText().split("\n");
+//      String[] address = cells.get(3).getText().split("\n");
+//      String[] phones = cells.get(5).getText().split("\n");
 
 //В кэш записывать значения не разбивая по полям
       contactCache.add(new ContactData().withId(id).withFirstname(name).withLastname(lastname)
-              .withHomePhone(phones[0])
-              .withMobilePhone(phones[1])
-              .withWorkPhone(phones[2])
-              .withEmail(emails[0])
-              .withEmail2(emails[1])
-              .withEmail3(emails[2])
-              .withAddress(address[0])
-          //    .withAddress2(address[1])
+              .withAllAdress(allAdress)
+              .withAllEmails(allEmails)
+              .withAllPhones(allPhones)
       );
     }
     return new Contacts(contactCache);

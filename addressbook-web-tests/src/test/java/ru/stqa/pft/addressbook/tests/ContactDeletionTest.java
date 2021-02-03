@@ -22,8 +22,8 @@ public class ContactDeletionTest extends TestBase {
     if (app.getContactHelper().isThereAContact()) {
       app.getContactHelper().createContact(
                       new ContactData()
-                              .withFirstname("Bob")
-                              .withLastname("Stewenson")
+                              .withFirstname("Mike")
+                              .withLastname("Jonson")
                               .withHomePhone("111-222")
                               .withMobilePhone("+7(222)")
                               .withWorkPhone("333 999 222")

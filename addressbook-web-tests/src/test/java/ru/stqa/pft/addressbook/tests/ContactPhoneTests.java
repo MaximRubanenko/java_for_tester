@@ -43,6 +43,8 @@ public class ContactPhoneTests extends TestBase {
             .collect(Collectors.joining("\n"));
   }
 
+
+
   public static String cleaned(String phone) {
     return phone.replaceAll("\\s", "").replaceAll("[-()]", "");
   }

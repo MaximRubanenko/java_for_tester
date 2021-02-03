@@ -14,6 +14,14 @@ public class ContactData {
   private String work;
   private String email;
 
+  private String email2;
+  private String email3;
+  private String address;
+  private String allAdress;
+  private String allEmails;
+  private String allPhones;
+  private String address2;
+
   public String getAllAdress() {
     return allAdress;
   }
@@ -42,13 +50,6 @@ public class ContactData {
 
   }
 
-  private String email2;
-  private String email3;
-  private String address;
-  private String allAdress;
-  private String allEmails;
-  private String allPhones;
-  private String address2;
 
   @Override
   public boolean equals(Object o) {

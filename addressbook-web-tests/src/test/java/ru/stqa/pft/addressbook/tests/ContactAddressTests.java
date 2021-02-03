@@ -3,6 +3,9 @@ package ru.stqa.pft.addressbook.tests;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -22,15 +25,14 @@ public class ContactAddressTests extends TestBase {
               .withEmail2("bravo@next.com")
               .withEmail3("nike@prado.fi")
               .withAddress("Moscow, Stornaya  bld 4/52 fl.   9")
-              //.withAddress2("Tula, Pavlova 6 /2")
+              .withAddress2("Tula, Pavlova 6 /2")
       );
     }
     app.goTo().gotoHomePage();
     ContactData contact = app.getContactHelper().allContact().iterator().next();
     ContactData contactInfoFromEditForm = app.getContactHelper().infoFromEditForm(contact);
-    assertThat(contact.getAddress(),equalTo(cleaned(contactInfoFromEditForm.getAddress())));
-    //assertThat(contact.getAddress2(),equalTo(contactInfoFromEditForm.getAddress2()));
 
+    assertThat(contact.getAllAdress(),equalTo(cleaned(contactInfoFromEditForm.getAddress())));;
   }
 
   public String cleaned(String address){

@@ -27,7 +27,7 @@ public class GroupDataGenerator {
       jc.parse(args);
     } catch (ParameterException ex) {
       jc.usage();
-      return; 
+      return;
     }
     generator.run();
   }

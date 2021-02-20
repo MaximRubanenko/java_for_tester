@@ -15,6 +15,7 @@ dependencies {
     implementation 'org.hamcrest:java-hamcrest:2.0.0.0'
     compile "com.beust:jcommander:1.71"
     implementation("com.thoughtworks.xstream:xstream:1.4.15")
+    implementation("dev.galasa:gson:2.8.5")
 }
 
 test {

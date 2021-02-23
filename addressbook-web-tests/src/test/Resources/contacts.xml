@@ -1,0 +1,38 @@
+<list>
+  <contacts>
+    <firstname>Bob 0</firstname>
+    <lastname>Stewenson 0</lastname>
+    <home>111-222 0</home>
+    <mobile>7(222) 0</mobile>
+    <work>333 999 222 0</work>
+    <email>start@stop.ru 0</email>
+    <email2>bravo@next.com 0</email2>
+    <email3>nike@prado.fi 0</email3>
+    <address>Moscow, Stornaya  bld 4/52 fl. 9 0</address>
+    <photo>src\test\resources\medved.png</photo>
+  </contacts>
+  <contacts>
+    <firstname>Bob 1</firstname>
+    <lastname>Stewenson 1</lastname>
+    <home>111-222 1</home>
+    <mobile>7(222) 1</mobile>
+    <work>333 999 222 1</work>
+    <email>start@stop.ru 1</email>
+    <email2>bravo@next.com 1</email2>
+    <email3>nike@prado.fi 1</email3>
+    <address>Moscow, Stornaya  bld 4/52 fl. 9 1</address>
+    <photo>src\test\resources\medved.png</photo>
+  </contacts>
+  <contacts>
+    <firstname>Bob 2</firstname>
+    <lastname>Stewenson 2</lastname>
+    <home>111-222 2</home>
+    <mobile>7(222) 2</mobile>
+    <work>333 999 222 2</work>
+    <email>start@stop.ru 2</email>
+    <email2>bravo@next.com 2</email2>
+    <email3>nike@prado.fi 2</email3>
+    <address>Moscow, Stornaya  bld 4/52 fl. 9 2</address>
+    <photo>src\test\resources\medved.png</photo>
+  </contacts>
+</list>

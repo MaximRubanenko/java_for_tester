@@ -8,8 +8,7 @@
     "email": "start@stop.ru 0",
     "email2": "bravo@next.com 0",
     "email3": "nike@prado.fi 0",
-    "address": "Moscow, Stornaya  bld 4/52 fl. 9 0",
-    "photo": {}
+    "address": "Moscow, Stornaya  bld 4/52 fl. 9 0"
   },
   {
     "firstname": "Bob 1",
@@ -20,8 +19,7 @@
     "email": "start@stop.ru 1",
     "email2": "bravo@next.com 1",
     "email3": "nike@prado.fi 1",
-    "address": "Moscow, Stornaya  bld 4/52 fl. 9 1",
-    "photo": {}
+    "address": "Moscow, Stornaya  bld 4/52 fl. 9 1"
   },
   {
     "firstname": "Bob 2",
@@ -32,7 +30,6 @@
     "email": "start@stop.ru 2",
     "email2": "bravo@next.com 2",
     "email3": "nike@prado.fi 2",
-    "address": "Moscow, Stornaya  bld 4/52 fl. 9 2",
-    "photo": {}
+    "address": "Moscow, Stornaya  bld 4/52 fl. 9 2"
   }
 ]

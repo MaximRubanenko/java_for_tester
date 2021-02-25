@@ -82,8 +82,8 @@ public class ContactDataGenerator {
               .withEmail(String.format("start@stop.ru %s",i))
               .withEmail2(String.format("bravo@next.com %s",i))
               .withEmail3(String.format("nike@prado.fi %s",i))
-              .withAddress(String.format("Moscow, Stornaya  bld 4/52 fl. 9 %s",i))
-              .withPhoto(photo)); // toString
+              .withAddress(String.format("Moscow, Stornaya  bld 4/52 fl. 9 %s",i)));
+              //.withPhoto(photo)); // toString
     }
     return contacts;
   }
